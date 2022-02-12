@@ -12,6 +12,7 @@ public class main {
         }
 
         Scanner input = new Scanner(new File(args[0]));
+        input.nextLine();
         String output = findMostFrequent(input, args[2]);
         System.out.println(output);
     }
