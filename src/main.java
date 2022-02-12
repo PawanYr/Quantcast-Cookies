@@ -6,8 +6,14 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws FileNotFoundException {
+        if(args.length < 2) {
+            System.out.println("You must provide a filename, and a date flagged with '-d'!");
+            System.exit(0);
+        }
+
         Scanner input = new Scanner(new File(args[0]));
         String output = findMostFrequent(input, args[2]);
+        System.out.println(output);
     }
 
     public static String findMostFrequent(Scanner input, String date) {
@@ -31,9 +37,9 @@ public class main {
             int frequency = entry.getValue();
             if (frequency > max) {
                 max = entry.getValue();
-                output = cookie + "\n";
+                output = "\n" + cookie;
             } else if (frequency == max) {
-                output += cookie + "\n";
+                output += "\n" + cookie;
             }
         }
         return output;
