@@ -6,16 +6,20 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws FileNotFoundException {
-        HashMap<String, Integer> cookies = new HashMap<>();
         Scanner input = new Scanner(new File(args[0]));
+        String output = findMostFrequent(input, args[2]);
+    }
+
+    public static String findMostFrequent(Scanner input, String date) {
+        HashMap<String, Integer> cookies = new HashMap<>();
 
         while (input.hasNextLine()) {
             String currentLine = input.nextLine();
             String[] cookie = currentLine.split(",");
             String[] dateAndTime = cookie[1].split("T");
 
-            if (dateAndTime[0] == args[2]) {
-                cookies.put(cookie[0], cookies.getOrDefault(cookie[0], 1)+1);
+            if (dateAndTime[0] == date) {
+                cookies.put(cookie[0], cookies.getOrDefault(cookie[0], 1) + 1);
             }
         }
 
@@ -32,6 +36,6 @@ public class main {
                 output += cookie + "\n";
             }
         }
-        System.out.print(output);
+        return output;
     }
 }
