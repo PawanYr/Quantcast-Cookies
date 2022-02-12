@@ -18,7 +18,7 @@ public class main {
             String[] cookie = currentLine.split(",");
             String[] dateAndTime = cookie[1].split("T");
 
-            if (dateAndTime[0] == date) {
+            if (dateAndTime[0].equals(date)) {
                 cookies.put(cookie[0], cookies.getOrDefault(cookie[0], 1) + 1);
             }
         }
