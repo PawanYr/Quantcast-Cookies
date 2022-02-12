@@ -5,16 +5,21 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class main {
-    public static void main(String[] args) throws FileNotFoundException {
-        if(args.length < 2) {
+    public static void main(String[] args) {
+        if (args.length < 3) {
             System.out.println("You must provide a filename, and a date flagged with '-d'!");
             System.exit(0);
         }
 
-        Scanner input = new Scanner(new File(args[0]));
-        input.nextLine();
-        String output = findMostFrequent(input, args[2]);
-        System.out.println(output);
+        try {
+            Scanner input = new Scanner(new File(args[0]));
+            input.nextLine();
+            String output = findMostFrequent(input, args[2]);
+            System.out.println(output);
+        } catch(FileNotFoundException f) {
+            System.out.println("Please enter a valid filename!");
+        }
+
     }
 
     public static String findMostFrequent(Scanner input, String date) {
