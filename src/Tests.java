@@ -26,4 +26,10 @@ public class Tests {
         String output = main.findMostFrequent(new Scanner(new File("sample1.csv")), "2018-12-12");
         assertEquals("", output);
     }
+
+    @Test
+    public void testEmptyFile() throws FileNotFoundException {
+        String output = main.findMostFrequent(new Scanner(new File("empty.csv")), "2018-12-09");
+        assertEquals("", output);
+    }
 }
